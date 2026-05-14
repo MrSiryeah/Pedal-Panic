@@ -1,13 +1,28 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+var spawn_delay = irandom_range(120, 260);
+var can_spawn = true;
+var safe_gap = 260;
 
-var spawn_delay = irandom_range(50, 300);
+with (obj_traffic)
+{
+    if (abs(x - other.x) < 20 && abs(y - other.y) < safe_gap)
+    {
+        other.can_spawn = false;
+    }
+}
 
-var car = instance_create_depth(x, y, -100, obj_traffic);
+if (can_spawn)
+{
+    var car;
+    car = instance_create_depth(x, y, -100, obj_traffic);
 
-car.dir = dir;
-car.image_speed = 0;
-car.image_index = irandom_range(0, 3);
+    car.image_speed = 0;
+    car.image_index = irandom_range(0, sprite_get_number(car.sprite_index) - 1);
+
+    // Faster same-way traffic
+	car.traffic_speed = random_range(3, 5);
+}
 
 alarm[0] = spawn_delay;

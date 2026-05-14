@@ -1,15 +1,13 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-// Opposite traffic
-// It must always move faster than the road
-
-var road_speed = obj_game.KMH;
-var extra_speed = 1.2;
+var road_speed = obj_game.KMH * 0.75;
+var extra_speed = 1.5;
 
 var final_speed = road_speed + extra_speed + traffic_speed;
 
-// Move DOWN the screen, same as road, but faster than road
+final_speed = clamp(final_speed, 3, 9);
+
 y += final_speed;
 
 if (y < -200 || y > room_height + 200) {

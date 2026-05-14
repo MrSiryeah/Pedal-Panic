@@ -1,17 +1,31 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-// Same-direction traffic
-// When player speeds up, you drive away from traffic
+// Same-side traffic
+// Player should slowly overtake/pass cars when speeding up
 
-var player_pull = obj_game.KMH * 0.45;
+var final_speed;
 
-var final_speed = traffic_speed - player_pull;
+if (obj_game.KMH >= 8)
+{
+    final_speed = traffic_speed * 0.15; // much slower when player boosts
+}
+else if (obj_game.KMH <= 3)
+{
+    final_speed = traffic_speed * 1.0;
+}
+else
+{
+    final_speed = traffic_speed * 0.6;
+}
 
-final_speed = clamp(final_speed, -3, 3);
+// Keep cars moving, but slow enough to pass
+final_speed = max(final_speed, 0.6);
 
-y += dir * final_speed;
+// Move UP the screen
+y -= final_speed;
 
-if (y < -200 || y > room_height + 200) {
+if (y < -200 || y > room_height + 200)
+{
     instance_destroy();
 }
