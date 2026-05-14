@@ -21,11 +21,10 @@ if (selected_option > 1)
 if (keyboard_check_pressed(vk_enter))
 {
 	// If Play Again is selected
-    if (selected_option == 0)
-    {
-		// Go back to the main game room
-        room_goto(rm_malteseroads);
-    }
+ if (selected_option == 0)
+	{
+	    game_restart();
+	}
 // If End Game is selected
     if (selected_option == 1)
     {
