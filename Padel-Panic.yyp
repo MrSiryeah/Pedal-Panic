@@ -5,7 +5,7 @@
   "resources": [
     {"id":{"name":"obj_settings_menu","path":"objects/obj_settings_menu/obj_settings_menu.yy",},"order":11,},
     {"id":{"name":"obj_road","path":"objects/obj_road/obj_road.yy",},"order":2,},
-    {"id":{"name":"spr_florian","path":"sprites/spr_florian/spr_florian.yy",},"order":0,},
+    {"id":{"name":"spr_rider","path":"sprites/spr_rider/spr_rider.yy",},"order":0,},
     {"id":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"order":4,},
     {"id":{"name":"spr_traffic","path":"sprites/spr_traffic/spr_traffic.yy",},"order":2,},
     {"id":{"name":"obj_traffic_down","path":"objects/obj_traffic_down/obj_traffic_down.yy",},"order":7,},

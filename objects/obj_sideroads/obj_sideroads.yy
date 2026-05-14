@@ -6,7 +6,7 @@
     "name": "spr_sideroads",
     "path": "sprites/spr_sideroads/spr_sideroads.yy",
   },
-  "solid": false,
+  "solid": true,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,

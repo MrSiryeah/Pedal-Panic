@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_player",
   "spriteId": {
-    "name": "spr_florian",
-    "path": "sprites/spr_florian/spr_florian.yy",
+    "name": "spr_rider",
+    "path": "sprites/spr_rider/spr_rider.yy",
   },
   "solid": false,
   "visible": true,
