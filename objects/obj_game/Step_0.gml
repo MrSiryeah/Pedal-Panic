@@ -1,11 +1,21 @@
 /// @description Insert description here
 // You can write your code in this editor
-KMH = 5
-
-if keyboard_check(ord("W")){
-	KMH = 10
+// Player input changes target road speed
+if (keyboard_check(ord("W")))
+{
+    road_target_speed = 10;
+}
+else if (keyboard_check(ord("S")))
+{
+    road_target_speed = 2.5;
+}
+else
+{
+    road_target_speed = 5;
 }
 
-if keyboard_check(ord("S")){
-	KMH = 2.5
-}
+// Smooth speed change
+road_speed = lerp(road_speed, road_target_speed, 0.08);
+
+// Keep old KMH variable working
+KMH = road_speed;

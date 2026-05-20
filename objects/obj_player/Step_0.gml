@@ -37,3 +37,10 @@ else
     // Make sure player is visible again
     image_alpha = 1;
 }
+
+// Stop player from going through invisible walls
+if (place_meeting(x, y, obj_wall))
+{
+    x = xprevious;
+    y = yprevious;
+}

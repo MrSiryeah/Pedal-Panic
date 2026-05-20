@@ -3,3 +3,5 @@
 
 KMH = 5;
 
+road_speed = 5;
+road_target_speed = 5;

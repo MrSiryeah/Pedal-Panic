@@ -3,7 +3,7 @@
 
 var spawn_delay = irandom_range(120, 260);
 var can_spawn = true;
-var safe_gap = 260;
+var safe_gap = 320;
 
 with (obj_traffic)
 {
@@ -21,8 +21,8 @@ if (can_spawn)
     car.image_speed = 0;
     car.image_index = irandom_range(0, sprite_get_number(car.sprite_index) - 1);
 
-    // Faster same-way traffic
-	car.traffic_speed = random_range(3, 5);
+    // Link car to this spawner/lane
+    car.my_spawner = id;
 }
 
 alarm[0] = spawn_delay;
