@@ -1,46 +1,76 @@
-//Player Movement//
+// ===============================
+// SAVE POSITION BEFORE MOVEMENT
+// ===============================
 
-if keyboard_check(ord("A"))
+var old_x = x;
+var old_y = y;
+
+
+// ===============================
+// PLAYER MOVEMENT
+// ===============================
+
+if (keyboard_check(ord("A")))
 {
-	x=x-10
+    x -= 10;
 }
-if keyboard_check(ord("D"))
+
+if (keyboard_check(ord("D")))
 {
-	x=x+10
+    x += 10;
 }
 
-// If the player has recently crashed
-if (hit_cooldown > 0)
+
+// ===============================
+// WALL COLLISION FIX
+// ===============================
+
+// If player enters wall/building area, undo only horizontal movement
+if (place_meeting(x, y, obj_wall))
 {
-    // Reduce cooldown every frame
-    hit_cooldown -= 1;
+    x = old_x;
+}
 
-    // Increase flash timer
-    flash_timer += 1;
+// If the player is still touching a wall because a car pushed them,
+// push them gently back toward the road
+var safety_count = 0;
 
-    // Flash every few frames
-    if (flash_timer mod 10 < 5)
+while (place_meeting(x, y, obj_wall) && safety_count < 20)
+{
+    if (x < room_width / 2)
     {
-        image_alpha = 1; // Fully visible
+        x += 1;
     }
     else
     {
-        image_alpha = 0; // Invisible
+        x -= 1;
+    }
+
+    safety_count += 1;
+}
+
+
+// ===============================
+// DAMAGE / FLASH COOLDOWN
+// ===============================
+
+if (hit_cooldown > 0)
+{
+    hit_cooldown -= 1;
+    flash_timer += 1;
+
+    if (flash_timer mod 10 < 5)
+    {
+        image_alpha = 1;
+    }
+    else
+    {
+        image_alpha = 0;
     }
 }
 else
 {
-    // Cooldown finished
     hit_cooldown = 0;
     flash_timer = 0;
-
-    // Make sure player is visible again
     image_alpha = 1;
-}
-
-// Stop player from going through invisible walls
-if (place_meeting(x, y, obj_wall))
-{
-    x = xprevious;
-    y = yprevious;
 }

@@ -1,6 +1,7 @@
-/// @description Insert description here
-// You can write your code in this editor
-// Player input changes target road speed
+// ===============================
+// ROAD SPEED CONTROL
+// ===============================
+
 if (keyboard_check(ord("W")))
 {
     road_target_speed = 10;
