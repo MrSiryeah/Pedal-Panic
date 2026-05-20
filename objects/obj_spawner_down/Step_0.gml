@@ -7,5 +7,5 @@ lane_speed = lerp(lane_speed, lane_target_speed, 0.03);
 // Occasionally change lane speed
 if (irandom(180) == 0)
 {
-    lane_target_speed = random_range(2, 3.5);
+    lane_target_speed = random_range(2.5, 4);
 }

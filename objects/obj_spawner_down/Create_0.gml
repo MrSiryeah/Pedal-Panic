@@ -3,7 +3,7 @@
 
 dir = 1;
 
-lane_speed = random_range(2, 3.5);
+lane_speed = random_range(2.5, 4);
 lane_target_speed = lane_speed;
 
 // Random start delay so all spawners do not spawn together
