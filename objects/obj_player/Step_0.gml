@@ -5,6 +5,36 @@
 var old_x = x;
 var old_y = y;
 
+// ===============================
+// FINISH AUTO-MOVE
+// ===============================
+
+if (obj_game.game_state == "finishing")
+{
+    var target_x = obj_game.finish_player_x;
+    var target_y = obj_game.finish_player_y;
+
+    x = lerp(x, target_x, 0.08);
+    y = lerp(y, target_y, 0.08);
+
+    image_alpha = 1;
+
+    // Only show win popup after:
+    // 1. School has stopped
+    // 2. Player has reached the gate area
+    if (obj_game.finish_complete)
+    {
+        if (point_distance(x, y, target_x, target_y) < 8)
+        {
+            x = target_x;
+            y = target_y;
+
+            obj_game.game_state = "win";
+        }
+    }
+
+    exit;
+}
 
 // ===============================
 // PLAYER MOVEMENT

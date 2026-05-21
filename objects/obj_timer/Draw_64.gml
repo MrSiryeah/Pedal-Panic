@@ -154,3 +154,35 @@ draw_text_transformed(
     2,
     0
 );
+
+// ===============================
+// WIN POPUP
+// ===============================
+
+if (obj_game.game_state == "win")
+{
+    var gui_w = display_get_gui_width();
+    var gui_h = display_get_gui_height();
+
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+
+    // Dark transparent background
+    draw_set_color(c_black);
+    draw_set_alpha(0.65);
+    draw_rectangle(0, 0, gui_w, gui_h, false);
+    draw_set_alpha(1);
+
+    // Win text
+    draw_set_color(c_white);
+    draw_text_transformed(gui_w / 2, gui_h / 2 - 60, "YOU WIN!", 3, 3, 0);
+
+    draw_text_transformed(gui_w / 2, gui_h / 2 + 10, "You reached school on time", 1.5, 1.5, 0);
+
+    draw_text_transformed(gui_w / 2, gui_h / 2 + 70, "Press ENTER to play again", 1.2, 1.2, 0);
+
+    if (keyboard_check_pressed(vk_enter))
+    {
+        game_restart();
+    }
+}
