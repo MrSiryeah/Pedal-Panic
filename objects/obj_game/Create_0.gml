@@ -1,3 +1,4 @@
+win_sound_played = false;
 // ===============================
 // GAME SPEED
 // ===============================
@@ -13,7 +14,7 @@ road_target_speed = 5;
 // ===============================
 
 items_collected = 0;
-items_needed = 3;
+items_needed = 10;
 
 
 // ===============================
@@ -22,7 +23,11 @@ items_needed = 3;
 
 game_state = "playing";
 
-// Finish animation settings
+
+// ===============================
+// FINISH / SCHOOL ENDING
+// ===============================
+
 finish_started = false;
 finish_complete = false;
 

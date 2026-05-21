@@ -1,6 +1,9 @@
 // Only collect items during normal gameplay
 if (obj_game.game_state == "playing")
 {
+    // Play collect sound
+    audio_play_sound(snd_collect, 5, false);
+
     obj_game.items_collected += 1;
 
     // Add 2 seconds to timer
@@ -15,12 +18,11 @@ if (obj_game.game_state == "playing")
         instance_destroy();
     }
 
-    // Start finish state instead of going to rm_win
+    // Start finish state
     if (obj_game.items_collected >= obj_game.items_needed)
     {
         obj_game.game_state = "finishing";
 
-        // Remove remaining collectibles
         with (obj_collectible)
         {
             instance_destroy();

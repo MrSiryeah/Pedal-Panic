@@ -1,8 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
-
-// Draw pause button in the top-right of the screen
-
 // Align all text to the centre
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
@@ -43,16 +38,4 @@ else
 {
     draw_set_color(c_white);
     draw_text(display_get_gui_width() / 2, 370, "SETTINGS");
-}
-
-// Draw Exit option
-if (selected_option == 2)
-{
-    draw_set_color(c_yellow);
-    draw_text(display_get_gui_width() / 2, 440, "> EXIT <");
-}
-else
-{
-    draw_set_color(c_white);
-    draw_text(display_get_gui_width() / 2, 440, "EXIT");
 }

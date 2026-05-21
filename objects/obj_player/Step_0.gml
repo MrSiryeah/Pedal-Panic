@@ -5,6 +5,7 @@
 var old_x = x;
 var old_y = y;
 
+
 // ===============================
 // FINISH AUTO-MOVE
 // ===============================
@@ -29,7 +30,13 @@ if (obj_game.game_state == "finishing")
             x = target_x;
             y = target_y;
 
-            obj_game.game_state = "win";
+            if (!obj_game.win_sound_played)
+			{
+			    audio_play_sound(snd_win, 8, false);
+			    obj_game.win_sound_played = true;
+			}
+
+			obj_game.game_state = "win";
         }
     }
 

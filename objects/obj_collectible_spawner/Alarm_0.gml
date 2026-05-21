@@ -1,5 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
+if (obj_game.game_state != "playing")
+{
+    alarm[0] = 60;
+    exit;
+}
 
 var spawn_x = choose(300, 390, 480, 570, 660);
 var spawn_y = -80;
