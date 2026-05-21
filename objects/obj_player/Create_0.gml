@@ -14,4 +14,4 @@ flash_timer = 0;
 crash_push = 12;
 
 // Make sure the player is drawn above roads and traffic
-depth = -100;
+depth = -1000;

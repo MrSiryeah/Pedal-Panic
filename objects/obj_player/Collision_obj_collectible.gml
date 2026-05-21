@@ -1,20 +1,29 @@
-// Add collectible progress
-obj_game.items_collected += 1;
-
-// Add 2 seconds to the timer
-with (obj_timer)
+// Only collect items during normal gameplay
+if (obj_game.game_state == "playing")
 {
-    timer_frames += room_speed * 2;
-}
+    obj_game.items_collected += 1;
 
-// Destroy collected item
-with (other)
-{
-    instance_destroy();
-}
+    // Add 2 seconds to timer
+    with (obj_timer)
+    {
+        timer_frames += room_speed * 2;
+    }
 
-// Win condition
-if (obj_game.items_collected >= obj_game.items_needed)
-{
-    room_goto(rm_win);
+    // Destroy collected item
+    with (other)
+    {
+        instance_destroy();
+    }
+
+    // Start finish state instead of going to rm_win
+    if (obj_game.items_collected >= obj_game.items_needed)
+    {
+        obj_game.game_state = "finishing";
+
+        // Remove remaining collectibles
+        with (obj_collectible)
+        {
+            instance_destroy();
+        }
+    }
 }
