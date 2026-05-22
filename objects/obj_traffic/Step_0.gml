@@ -13,7 +13,7 @@ var final_speed;
 
 if (obj_game.KMH >= 8)
 {
-    final_speed = lane_speed * 0.15;
+    final_speed = lane_speed * 0.28;
 }
 else if (obj_game.KMH <= 3)
 {
@@ -24,7 +24,7 @@ else
     final_speed = lane_speed * 0.6;
 }
 
-final_speed = max(final_speed, 0.6);
+final_speed = max(final_speed, 1.1);
 
 // Same-side traffic moves UP
 y -= final_speed;
