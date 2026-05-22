@@ -13,7 +13,7 @@ if (keyboard_check_pressed(ord("S")) || keyboard_check_pressed(vk_down))
     selected_slider += 1;
 }
 
-// Wrap
+// Wrap selection
 if (selected_slider < 0)
 {
     selected_slider = 4;
@@ -43,19 +43,19 @@ if (keyboard_check_pressed(ord("D")) || keyboard_check_pressed(vk_right))
     if (selected_slider == 3) global.crash_volume += change_amount;
 }
 
-// Clamp volume values
+// Clamp values
 global.music_volume = clamp(global.music_volume, 0, 1);
 global.sfx_volume = clamp(global.sfx_volume, 0, 1);
 global.collect_volume = clamp(global.collect_volume, 0, 1);
 global.crash_volume = clamp(global.crash_volume, 0, 1);
 
-// Apply music live
+// Apply music volume live
 audio_sound_gain(snd_music_game, global.music_volume, 0);
 
-// Back
-if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_escape))
+// Go back
+if (keyboard_check_pressed(vk_enter))
 {
-    if (selected_slider == 4 || keyboard_check_pressed(vk_escape))
+    if (selected_slider == 4)
     {
         if (variable_global_exists("settings_return_room"))
         {
@@ -65,5 +65,17 @@ if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_escape))
         {
             room_goto(rm_title);
         }
+    }
+}
+
+if (keyboard_check_pressed(vk_escape))
+{
+    if (variable_global_exists("settings_return_room"))
+    {
+        room_goto(global.settings_return_room);
+    }
+    else
+    {
+        room_goto(rm_title);
     }
 }
