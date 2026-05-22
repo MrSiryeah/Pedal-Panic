@@ -1,11 +1,11 @@
-// Move selection up with W
-if (keyboard_check_pressed(ord("W")))
+// Move selection up with W or Up Arrow
+if (keyboard_check_pressed(ord("W")) || keyboard_check_pressed(vk_up))
 {
     selected_option -= 1;
 }
 
-// Move selection down with S
-if (keyboard_check_pressed(ord("S")))
+// Move selection down with S or Down Arrow
+if (keyboard_check_pressed(ord("S")) || keyboard_check_pressed(vk_down))
 {
     selected_option += 1;
 }
@@ -27,13 +27,15 @@ if (keyboard_check_pressed(vk_enter))
     // Continue game
     if (selected_option == 0)
     {
-        room_goto(global.paused_from_room);
+		global.fade_target_room = global.paused_from_room;
+		global.fade_state = "fade_out";
     }
 
 	// Go to settings screen
 	if (selected_option == 1)
 	{
 	    global.settings_return_room = rm_pause;
-	    room_goto(rm_settings);
+		global.fade_target_room = rm_settings;
+		global.fade_state = "fade_out";
 	}
 }

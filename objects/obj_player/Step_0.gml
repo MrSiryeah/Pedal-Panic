@@ -47,12 +47,12 @@ if (obj_game.game_state == "finishing")
 // PLAYER MOVEMENT
 // ===============================
 
-if (keyboard_check(ord("A")))
+if (keyboard_check(ord("A")) || keyboard_check(vk_left))
 {
     x -= 10;
 }
 
-if (keyboard_check(ord("D")))
+if (keyboard_check(ord("D")) || keyboard_check(vk_right))
 {
     x += 10;
 }

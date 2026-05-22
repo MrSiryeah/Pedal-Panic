@@ -72,10 +72,12 @@ if (keyboard_check_pressed(vk_escape))
 {
     if (variable_global_exists("settings_return_room"))
     {
-        room_goto(global.settings_return_room);
+		global.fade_target_room = global.settings_return_room;
+		global.fade_state = "fade_out";
     }
     else
     {
-        room_goto(rm_title);
+		global.fade_target_room = rm_title;
+		global.fade_state = "fade_out";
     }
 }

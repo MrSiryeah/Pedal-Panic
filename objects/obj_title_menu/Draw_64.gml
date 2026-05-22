@@ -24,32 +24,28 @@ draw_set_alpha(1);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
-// Title
-draw_set_color(c_white);
-draw_text_transformed(gui_w / 2, 180, "PEDAL PANIC", 3, 3, 0);
-
 // Start button
 if (selected_option == 0)
 {
     draw_set_color(c_yellow);
-    draw_text_transformed(gui_w / 2, 420, "> START <", 2, 2, 0);
+    draw_text_transformed(gui_w / 2, 520, "> START <", 2, 2, 0);
 }
 else
 {
     draw_set_color(c_white);
-    draw_text_transformed(gui_w / 2, 420, "START", 2, 2, 0);
+    draw_text_transformed(gui_w / 2, 520, "START", 2, 2, 0);
 }
 
 // Settings button
 if (selected_option == 1)
 {
     draw_set_color(c_yellow);
-    draw_text_transformed(gui_w / 2, 500, "> SETTINGS <", 2, 2, 0);
+    draw_text_transformed(gui_w / 2, 600, "> SETTINGS <", 2, 2, 0);
 }
 else
 {
     draw_set_color(c_white);
-    draw_text_transformed(gui_w / 2, 500, "SETTINGS", 2, 2, 0);
+    draw_text_transformed(gui_w / 2, 600, "SETTINGS", 2, 2, 0);
 }
 
 // Instructions

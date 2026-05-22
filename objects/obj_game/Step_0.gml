@@ -4,11 +4,11 @@
 
 if (game_state == "playing")
 {
-    if (keyboard_check(ord("W")))
+    if (keyboard_check(ord("W")) || keyboard_check(vk_up))
     {
         road_target_speed = 10;
     }
-    else if (keyboard_check(ord("S")))
+    else if (keyboard_check(ord("S")) || keyboard_check(vk_down))
     {
         road_target_speed = 2.5;
     }

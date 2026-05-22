@@ -30,13 +30,15 @@ if (keyboard_check_pressed(vk_enter))
     // Start game
     if (selected_option == 0)
     {
-        room_goto(rm_malteseroads);
+      global.fade_target_room = rm_malteseroads;
+	  global.fade_state = "fade_out";
     }
 
     // Settings
     if (selected_option == 1)
     {
         global.settings_return_room = rm_title;
-        room_goto(rm_settings);
+		global.fade_target_room = rm_settings;
+		global.fade_state = "fade_out";
     }
 }

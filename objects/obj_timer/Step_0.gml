@@ -13,5 +13,6 @@ else
     // Play game over sound once
     audio_play_sound(snd_gameover, 8, false);
 
-    room_goto(rm_gameover);
+	global.fade_target_room = rm_gameover;
+	global.fade_state = "fade_out";
 }
