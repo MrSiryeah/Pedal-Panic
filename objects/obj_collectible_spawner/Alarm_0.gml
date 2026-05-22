@@ -1,6 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
-
 // Stop spawning if not actively playing
 if (obj_game.game_state != "playing")
 {
@@ -8,9 +5,17 @@ if (obj_game.game_state != "playing")
     exit;
 }
 
-// Road lane positions
-// Adjust these numbers if one is too close to the wall
-var spawn_x = choose(230, 330, 430, 530, 630);
+// Collectible road positions
+// These cover both left and right sides of the road
+var spawn_x = choose(
+    120,  // far left lane
+    220,  // left-middle lane
+    320,  // centre-left
+    430,  // centre-right
+    540,  // right-middle
+    650   // far right lane
+);
+
 var spawn_y = -80;
 
 var item;
