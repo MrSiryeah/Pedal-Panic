@@ -25,11 +25,11 @@ if (selected_option > 1)
 if (keyboard_check_pressed(vk_enter))
 {
     // Continue game
-    if (selected_option == 0)
-    {
-		global.fade_target_room = global.paused_from_room;
-		global.fade_state = "fade_out";
-    }
+	if (selected_option == 0)
+	{
+	    global.fade_target_room = global.paused_from_room;
+	    global.fade_state = "fade_out";
+	}
 
 	// Go to settings screen
 	if (selected_option == 1)

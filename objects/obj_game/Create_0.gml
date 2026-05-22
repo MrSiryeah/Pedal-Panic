@@ -34,3 +34,6 @@ finish_complete = false;
 // Where the player should move before the win popup
 finish_player_x = room_width / 1.5;
 finish_player_y = 650;
+
+// Gameplay room should stay persistent for pause menu
+room_set_persistent(rm_malteseroads, true);
