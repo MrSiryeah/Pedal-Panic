@@ -30,9 +30,10 @@ if (keyboard_check_pressed(vk_enter))
         room_goto(global.paused_from_room);
     }
 
-    // Go to settings screen
-    if (selected_option == 1)
-    {
-        room_goto(rm_settings);
-    }
+	// Go to settings screen
+	if (selected_option == 1)
+	{
+	    global.settings_return_room = rm_pause;
+	    room_goto(rm_settings);
+	}
 }
