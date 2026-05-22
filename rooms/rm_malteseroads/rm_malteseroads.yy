@@ -88,6 +88,7 @@
     {"name":"inst_72A60617","path":"rooms/rm_malteseroads/rm_malteseroads.yy",},
     {"name":"inst_1BB03DFA","path":"rooms/rm_malteseroads/rm_malteseroads.yy",},
     {"name":"inst_2D154B53","path":"rooms/rm_malteseroads/rm_malteseroads.yy",},
+    {"name":"inst_206D7FE8","path":"rooms/rm_malteseroads/rm_malteseroads.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
