@@ -11,7 +11,9 @@ if (timer_frames > 0)
 else
 {
     // Play game over sound once
-    audio_play_sound(snd_gameover, 8, false);
+    var gameover_snd;
+	gameover_snd = audio_play_sound(snd_gameover, 8, false);
+	audio_sound_gain(gameover_snd, global.sfx_volume, 0);
 
 	global.fade_target_room = rm_gameover;
 	global.fade_state = "fade_out";

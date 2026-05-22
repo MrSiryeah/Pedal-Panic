@@ -30,13 +30,23 @@ if (obj_game.game_state == "finishing")
             x = target_x;
             y = target_y;
 
-            if (!obj_game.win_sound_played)
-			{
-			    audio_play_sound(snd_win, 8, false);
-			    obj_game.win_sound_played = true;
-			}
+		if (!obj_game.win_sound_played)
+		{
+		    global.music_should_play = false;
 
-			obj_game.game_state = "win";
+		    if (audio_is_playing(snd_music_game))
+		    {
+		        audio_stop_sound(snd_music_game);
+		    }
+
+		    var win_snd;
+		    win_snd = audio_play_sound(snd_win, 8, false);
+		    audio_sound_gain(win_snd, global.sfx_volume, 0);
+
+		    obj_game.win_sound_played = true;
+		}
+
+		obj_game.game_state = "win";
         }
     }
 

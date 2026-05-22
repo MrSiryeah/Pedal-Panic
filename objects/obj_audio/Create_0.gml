@@ -2,14 +2,29 @@
 // AUDIO SETUP
 // ===============================
 
-// Master volume
-audio_master_gain(1);
-
-// Start background music
-if (!audio_is_playing(snd_music_game))
+// Prevent duplicate audio controllers
+if (instance_number(obj_audio) > 1)
 {
-    audio_play_sound(snd_music_game, 1, true);
+    instance_destroy();
+    exit;
 }
 
-// Set music volume lower than sound effects
-audio_sound_gain(snd_music_game, 0.35, 0);
+persistent = true;
+
+// Volume defaults
+if (!variable_global_exists("music_volume")) global.music_volume = 0.35;
+if (!variable_global_exists("sfx_volume")) global.sfx_volume = 1.0;
+if (!variable_global_exists("collect_volume")) global.collect_volume = 1.0;
+if (!variable_global_exists("crash_volume")) global.crash_volume = 1.0;
+
+if (!variable_global_exists("music_handle"))
+{
+    global.music_handle = noone;
+}
+
+if (!variable_global_exists("music_should_play"))
+{
+    global.music_should_play = true;
+}
+
+audio_master_gain(1);

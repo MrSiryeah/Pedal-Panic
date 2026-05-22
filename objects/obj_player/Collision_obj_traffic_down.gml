@@ -2,7 +2,9 @@
 if (hit_cooldown <= 0)
 {
     // Play crash sound once
-    audio_play_sound(snd_crash, 6, false);
+    var crash_snd;
+	crash_snd = audio_play_sound(snd_crash, 6, false);
+	audio_sound_gain(crash_snd, global.sfx_volume * global.crash_volume, 0);
 
     // Push only horizontally, not vertically
     if (x < other.x)

@@ -2,7 +2,9 @@
 if (obj_game.game_state == "playing")
 {
     // Play collect sound
-    audio_play_sound(snd_collect, 5, false);
+    var collect_snd;
+	collect_snd = audio_play_sound(snd_collect, 5, false);
+	audio_sound_gain(collect_snd, global.sfx_volume * global.collect_volume, 0);
 
     obj_game.items_collected += 1;
 
